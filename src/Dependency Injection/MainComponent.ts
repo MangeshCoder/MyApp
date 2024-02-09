@@ -41,6 +41,6 @@ export class mainClass{
     AddStudent(p:any){
        this.student.sp.AddStudents(p);
        console.log(p);
-       alert("student added successfully");
+       alert("student added successfully...!");
     }
 }
