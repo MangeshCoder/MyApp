@@ -1,0 +1,76 @@
+<h2>student task</h2>
+<table>
+    <tr>
+        <td>Roll no</td>
+        <td><input type="text" [(ngModel)]="s.rno"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td><input type="text" [(ngModel)]="s.name"></td>
+    </tr>    
+    <tr>
+        <td>English</td>
+        <td><input type="text" [(ngModel)]="s.english" (change)="Calculate(s)"></td>
+    </tr>    
+    <tr>
+        <td>Maths</td>
+        <td><input type="text" [(ngModel)]="s.maths" (change)="Calculate(s)"></td>
+    </tr>   
+     <tr>
+        <td>Science</td>
+        <td><input type="text" [(ngModel)]="s.science" (change)="Calculate(s)"></td>
+    </tr>   
+    <tr>
+        <td>Total</td>
+        <td><input type="text" [(ngModel)]="s.total"></td>
+    </tr>    
+    <tr>
+        <td>Percentage</td>
+        <td><input type="text" [(ngModel)]="s.percentage"></td>
+    </tr>    
+    <tr>
+        <td>Result</td>
+        <td><input type="text" [(ngModel)]="s.result"></td>
+    </tr>    
+    <tr>
+        <td colspan="2">
+            <input type="button" value="submit" (click)="Addstudent(s)" >
+            &nbsp;
+            <input type="button" value="Update" (click)="Updatestudent(s)">
+            &nbsp;
+            <input type="button" value="clear data" (click)="ClearData()">
+        </td>
+    </tr>
+</table>
+<hr>
+<table border="1">
+    <thead>
+        <tr>
+            <td>Roll no</td>
+            <td>Name</td>
+            <td>English</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Total</td>
+            <td>Percentage</td>
+            <td>Result</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let s of student;index as i">
+            <td>{{s.rno}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.english}}</td>
+            <td>{{s.maths}}</td>
+            <td>{{s.science}}</td>
+            <td>{{s.total}}</td>
+            <td>{{s.percentage}}</td>
+            <td>{{s.result}}</td>
+            <td>
+                <button type="button" (click)="viewStudent(s,i)">View</button>
+                <button type="button" (click)="deleteStudent(i)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

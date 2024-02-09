@@ -1,0 +1,53 @@
+<table>
+    <tr>
+        <td>Employee id</td>
+        <td><input type="text" [(ngModel)]="s.employee_id"></td>
+    </tr>
+    <tr>
+        <td>Employee name</td>
+        <td><input type="text" [(ngModel)]="s.employee_name"></td>
+    </tr>
+    <tr>
+        <td>Qualification</td>
+        <td><input type="text" [(ngModel)]="s.qualification"></td>
+    </tr>
+    <tr>
+        <td>Salary</td>
+        <td><input type="text" [(ngModel)]="s.salary"></td>
+
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="submit" (click)="AddEmployee(s)">
+            &nbsp;
+            <input type="button" value="Update" (click)="UpdateEmployee(s)">
+            &nbsp;
+            <input type="button" value="Clear" (click)="cleardata()">
+        </td>
+    </tr>
+</table>
+<hr>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Employee id</th>
+            <th>Employee name</th>
+            <th>Qualification</th>
+            <th>Salary</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of employees;index as i">
+            <td>{{c.employee_id}}</td>
+            <td>{{c.employee_name}}</td>
+            <td>{{c.qualification}}</td>
+            <td>{{c.salary}}</td>
+            <td>
+                <button type="button" (click)="ViewEmployee(c,i)">View</button>
+                &nbsp;
+                <button type="button" (click)="deleteEmployee(i)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

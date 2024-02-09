@@ -1,0 +1,93 @@
+<h2>Arithmatic operations</h2>
+<table>
+    <tr>
+        <td>Number 1</td>
+        <input type="text" [(ngModel)]="num1">
+    </tr>
+    <tr>
+        <td>Number 2</td>
+        <input type="text" [(ngModel)]="num2">
+    </tr>
+    <tr>
+       <td colspan="2">
+          <input type="button" value="Add" (click)="Calculate(num1,num2)">
+       </td>
+    </tr>
+</table>
+<hr>
+<h2>{{addResult}}</h2>
+<h2>{{subResult}}</h2>
+<h2>{{mulResult}}</h2>
+<h2>{{divResult}}</h2>
+
+<hr>
+<table>
+    <tr>
+        <td>Roll no</td>
+        <input type="text" [(ngModel)]="s.rno">
+    </tr>
+    <tr>
+        <td>Name</td>
+        <input type="text" [(ngModel)]="s.name">
+    </tr>
+    <tr>
+        <td>English</td>
+        <input type="text" [(ngModel)]="s.english">
+    </tr>
+    <tr>
+        <td>Math</td>
+        <input type="text" [(ngModel)]="s.maths">
+    </tr>
+    <tr>
+        <td>Science</td>
+        <input type="text" [(ngModel)]="s.science">
+    </tr>
+    <tr>
+        <td>Total</td>
+        <input type="text" [(ngModel)]="s.total">
+    </tr>
+    <tr>
+        <td>Percentage</td>
+        <input type="text" [(ngModel)]="s.percentage">
+    </tr>
+    <tr>
+        <td>Result</td>
+        <input type="text" [(ngModel)]="s.result">
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="submit" (click)="AddStudent(s)">
+        </td>
+    </tr>
+</table>
+<hr>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Roll no</th>
+            <th>Name</th>
+            <th>English</th>
+            <th>Math</th>
+            <th>Science</th>
+            <th>Total</th>
+            <th>Percentage</th>
+            <th>Result</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of student;index as i" >
+            <td>{{s.rno}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.english}}</td>
+            <td>{{s.math}}</td>
+            <td>{{s.science}}</td>
+            <td>{{s.total}}</td>
+            <td>{{s.percentage}}</td>
+            <td>{{s.result}}</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,135 @@
+<h2>Two way binding</h2>
+<table>
+    <tr>
+        <td>Enter first name</td>
+        <input type="text" [(ngModel)]="fname">
+    </tr>
+    <tr>
+        <td>Enter last name</td>
+        <input type="text" [(ngModel)]="lname">
+    </tr>
+</table>
+
+<h2>Welcome {{fname+" "+lname}}</h2>
+<hr>
+
+<h2>Event binding - click </h2>
+<table>
+    <tr>
+        <td>Number 1</td>
+        <input type="text" [(ngModel)]="num1">
+    </tr>
+    <tr>
+        <td>Number 2</td>
+        <input type="text" [(ngModel)]="num2">
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="Add" (click)="Addition(num1,num2)">
+            &nbsp;
+            <input type="button" value="Sub" (click)="Subtraction(num1,num2)">
+            &nbsp;
+            <input type="button" value="Mul" (click)="Multiplication(num1,num2)">
+            &nbsp;
+            <input type="button" value="Div" (click)="Division(num1,num2)">
+        </td>
+    </tr>
+</table>
+<h2>{{result}}</h2>
+<hr>
+
+<h2>Event binding - change</h2>
+
+<table>
+    <tr>
+        <td>roll no</td>
+        <input type="text" [(ngModel)]="rno">
+    </tr>
+    <tr>
+        <td>name</td>
+        <input type="text" [(ngModel)]="name">
+    </tr>
+    <tr>
+        <td>english</td>
+        <input type="text" [(ngModel)]="eng" (change)="Calculate(eng,math,sci)">
+    </tr>
+    <tr>
+        <td>math</td>
+        <input type="text" [(ngModel)]="math"(change)="Calculate(eng,math,sci)">
+    </tr>
+    <tr>
+        <td>science</td>
+        <input type="text" [(ngModel)]="sci"(change)="Calculate(eng,math,sci)">
+    </tr>
+    <tr>
+        <td>total</td>
+        <input type="text" [(ngModel)]="total" [disabled]="true">
+    </tr>
+    <tr>
+        <td>percentage</td>
+        <input type="text" [(ngModel)]="percentage"[disabled]="true">
+    </tr>
+    <tr>
+        <td>status</td>
+        <input type="text" [(ngModel)]="status"[disabled]="true">
+    </tr>
+</table>
+<hr>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Roll no</th>
+            <th>Name</th>
+            <th>English</th>
+            <th>Math</th>
+            <th>Science</th>
+            <th>Total</th>
+            <th>Percentage</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{rno}}</td>
+            <td>{{name}}</td>
+            <td>{{eng}}</td>
+            <td>{{math}}</td>
+            <td>{{sci}}</td>
+            <td>{{total}}</td>
+            <td>{{percentage}}</td>
+            <td>{{status}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<h2>Get city through array format</h2>
+<table>
+    <tr>
+        <td>City id</td>
+        <input type="text" [(ngModel)]="city_id">
+    </tr>
+    <tr>
+        <td>City name</td>
+        <input type="text" [(ngModel)]="city_name">
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="submit" (click)="AddCity(city_id,city_name)">
+        </td>
+    </tr>
+</table>
+<hr>
+<table border="1">
+    <thead>
+        <tr>
+            <th>City id</th>
+            <th>City name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of cities">
+             <td>{{c.city_id}}</td>
+             <td>{{c.city_name}}</td>
+        </tr>
+    </tbody>
+</table>
