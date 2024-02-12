@@ -10,6 +10,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 //import { projectModuleClass } from './Myproject/projectModule';
 //import { studentModuleClass } from './AddStudnts/studentModule';
 //import { moduleClass } from './Employee/employeeModule';
+// import { StudentComponent } from './Dependency Injection/MainComponent';
 import { mainModuleClass } from './Dependency Injection/MainModule';
 
 platformBrowserDynamic().bootstrapModule(mainModuleClass)

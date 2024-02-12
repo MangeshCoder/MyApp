@@ -1,0 +1,34 @@
+
+<hr>
+<table border="1">
+    <thead>
+      <tr>
+        <th>Roll no</th>
+        <th>Name</th>
+        <th>English</th>
+        <th>Math</th>
+        <th>Science</th>
+        <th>Total</th>
+        <th>Percentage</th>
+        <th>Result</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of students; index as i">
+        <td>{{s.rno}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.english}}</td>
+        <td>{{s.math}}</td>
+        <td>{{s.science}}</td>
+        <td>{{s.total}}</td>
+        <td>{{s.percentage}}</td>
+        <td>{{s.result}}</td>
+        <td>
+          <button (click)="UpdateStudent(s, i)">Update</button>
+          <button (click)="DeleteStudent(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

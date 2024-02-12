@@ -19,10 +19,20 @@ export class Operations{
         return c;
     }
 }
-export class Adddetails{
+export class StudentService {
+    private students: any[] = [];
+    index:any=-1;
   
-    student:any=[];
-    AddStudents(p:any){
-      this.student.push(p);
+    addStudent(student: any) {
+      this.students.push(student);
     }
+    updateStudent(student: any, index: number) {
+        this.students[index] = student;
+      }
+      deleteStudent(index: number) {
+        this.students.splice(index, 1);
+      }
+      
+      
+
 }

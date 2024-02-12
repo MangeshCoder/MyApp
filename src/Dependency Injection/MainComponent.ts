@@ -1,46 +1,45 @@
 import { Component } from "@angular/core";
 import { Operations } from "./MainService";
 import { student } from "src/AddStudent/studentModel";
-import { Adddetails } from "./MainService";
+import { StudentService } from "./MainService";
 
 @Component({
     selector:'app-root',
-    templateUrl:'Main.html'
+    templateUrl:'Main.html',
+    providers:[StudentService]
 })
-export class mainClass{
-    num1:any="";
-    num2:any="";
+export class StudentComponent {
+   
 
-    addResult:any="";
-    subResult:any="";
-    mulResult:any="";
-    divResult:any="";
-
+    
     rno:any="";
     name:any="";
     english:any="";
-    math:any="";
+    maths:any="";
     science:any="";
     total:any="";
     percentage:any="";
     result:any="";
+    students:any=[];
+    index:any="";
+
     
-    s=new student("","","","","","","","");
-    student:any=[];
+        constructor(private studentService: StudentService) {}
+      
+        AddStudents(rno: "", name: "", english: "",math:"",science:"",total:"",percentage:"",result:"") {
+            const student = { rno, name, english,math,science,total,percentage,result }; // Create a student object with the provided data
+            this.students=this.studentService.addStudent(student); // Add the student to the studentService.students array
+            console.log(student);
+            alert("student added successfully");
+          }
 
-
-    constructor(private op:Operations,sp:Adddetails ){}
-    Calculate(a:any,b:any){
-
-        this .addResult="Addition = "+this.op.Addition(a,b);
-        this .subResult="subtraction = "+this.op.subtraction(a,b);
-        this .mulResult="multiplication = "+this.op.multiplication(a,b);
-        this .divResult="division = "+this.op.division(a,b);
-    }
-    
-    AddStudent(p:any){
-       this.student.sp.AddStudents(p);
-       console.log(p);
-       alert("student added successfully...!");
-    }
+          UpdateStudent(student: any, index: number) {
+            this.studentService.updateStudent(student, index);
+            this.students = this.studentService.addStudent(student); // Get the updated students' data
+          }
+          DeleteStudent(index: number) {
+            this.studentService.deleteStudent(index);
+            this.students = this.studentService.addStudent(student); // Get the updated students' data
+          }
+   
 }
